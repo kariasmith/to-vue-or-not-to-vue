@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue</title>
-    <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
 <body>
     <h1>Hell Vue :)</h1>
-    <div id="app"></div>
+    <div id="app">
+        <p>{{ commedian }} - {{ special }} - {{ joke }}</p>
+        <p>{{ Likes }}</p>
+
+        <button v-on:click="Likes++">Like this joke</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
