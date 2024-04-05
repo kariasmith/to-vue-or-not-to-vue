@@ -9,10 +9,16 @@
 <body>
     <h1>Hell Vue :)</h1>
     <div id="app">
+        <div v-if="showJoke">
         <p>{{ commedian }} - {{ special }} - {{ joke }}</p>
         <p>{{ Likes }}</p>
-
         <button v-on:click="Likes++">Like this joke</button>
+        </div>
+
+        <button @click="toggleShowJokes">
+            <span v-if="showJoke">Hide Joke</span>
+            <span v-if="!showJoke">Show Joke</span>
+        </button>
     </div>
     <script src="app.js"></script>
 </body>
