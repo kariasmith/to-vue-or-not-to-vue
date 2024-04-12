@@ -12,8 +12,11 @@ const app = Vue.createApp({
         toggleShowJokes() {
             this.showJoke = !this.showJoke
         },
-        eventAction(k) {
+        eventAction(k, data) {
             console.log(k)
+            if (data) {
+                console.log(data)
+            }
         }
     }
 })
