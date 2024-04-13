@@ -5,7 +5,9 @@ const app = Vue.createApp({
             commedian: 'Ralphie May',
             special: 'Too Big To Ignore',
             joke: 'Stoned Like a Gravel Road',
-            Likes: 0
+            Likes: 0,
+            x: 0,
+            y: 0
         }
     },
     methods: {
@@ -17,6 +19,10 @@ const app = Vue.createApp({
             if (data) {
                 console.log(data)
             }
+        },
+        handleMousemove(e){
+            this.x = e.offsetX
+            this.y = e.offsetY
         }
     }
 })
