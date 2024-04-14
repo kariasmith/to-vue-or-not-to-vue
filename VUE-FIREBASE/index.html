@@ -34,7 +34,7 @@
         <div class="box" @mouseover="eventAction">mouseover</div>
         <div class="box" @mouseleave="eventAction">mouseleave</div>
         <div class="box" @dblclick="eventAction">doubleclick</div>
-        <div class="box"></div>
+        <div class="box" @mousemove="handleMousemove"> Position - {{ x }}, {{ y }}</div>
     </div>
     <script src="app.js"></script>
 </body>
