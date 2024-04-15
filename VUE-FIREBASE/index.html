@@ -20,16 +20,20 @@
     <h1>Hell Vue :)</h1>
     <div id="app">
         <div v-if="showJoke">
-        <p>{{ commedian }} - {{ special }} - {{ joke }}</p>
+            <ul>
+                <li v-for="x in comedys">
+                    <p>{{ x.comedian }} - {{ x.special }} - {{ x.joke }}</p>
+                </li>
+            </ul>
         <p>{{ Likes }}</p>
         <button v-on:click="Likes++">Like this joke</button>
         </div>
-
+        <br>
         <button @click="toggleShowJokes">
             <span v-if="showJoke">Hide Joke</span>
             <span v-else>Show Joke</span>
         </button>
-
+        <br>
         <!-- Mouse events -->
         <div class="box" @mouseover="eventAction">mouseover</div>
         <div class="box" @mouseleave="eventAction">mouseleave</div>
