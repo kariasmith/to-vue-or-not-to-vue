@@ -2,7 +2,7 @@ const app = Vue.createApp({
     data() {
         return{
             showJoke: true,
-            comedy: [
+            comedys: [
                 { comedian: 'Ralphie May', special: 'Too Big To Ignore', joke: 'Stoned Like a Gravel Road'},
                 { comedian: 'Ralphie May', special: 'Too Big To Ignore', joke: 'Stoned Like a Gravel Road'},
                 { comedian: 'Ralphie May', special: 'Too Big To Ignore', joke: 'Stoned Like a Gravel Road'},
