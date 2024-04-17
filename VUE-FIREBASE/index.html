@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Vue</title>
+    <title>Vue-Firebase</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
         .box {
@@ -14,32 +16,64 @@
             margin: 20px;
             display: inline-block;
         }
+
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        p,
+        h3,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
 </head>
+
 <body>
-    <h1>Hell Vue :)</h1>
+
     <div id="app">
-        <div v-if="showJoke">
+        <!-- attribute binding -->
+        <a v.bind:href="url">The Tolkien Society</a>
+        <a :href="url">The Tolkien Society</a>
+
+        <div v-if="showBooks">
             <ul>
-                <li v-for="x in comedys">
-                    <p>{{ x.comedian }} - {{ x.special }} - {{ x.joke }}</p>
+                <li v-for="x in books" :class="{ fav: x.isFav }">
+                    <img :src="x.img" alt="">
+                    <p>{{ x.title }}, {{ x.author }}, {{ x.year }}</p>
                 </li>
             </ul>
-        <p>{{ Likes }}</p>
-        <button v-on:click="Likes++">Like this joke</button>
+            <p>{{ likes }}</p>
+            <button v-on:click="likes++">I like this book</button>
         </div>
         <br>
-        <button @click="toggleShowJokes">
-            <span v-if="showJoke">Hide Joke</span>
-            <span v-else>Show Joke</span>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-if="!showBooks">Show Books</span>
         </button>
         <br>
-        <!-- Mouse events -->
-        <div class="box" @mouseover="eventAction">mouseover</div>
-        <div class="box" @mouseleave="eventAction">mouseleave</div>
-        <div class="box" @dblclick="eventAction">doubleclick</div>
-        <div class="box" @mousemove="handleMousemove"> Position - {{ x }}, {{ y }}</div>
+        <!-- Mouse over events -->
+        <div class="box" @mouseover="handleEvent">mouse over</div>
+        <div class="box" @mouseleave="handleEvent">mouse leave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }}, {{ y }}</div>
     </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
