@@ -40,6 +40,11 @@
             align-items: center;
             justify-content: space-between;
         }
+
+        li.fav {
+            background: #ff9ed2;
+            color: white;
+        }
     </style>
 </head>
 
@@ -48,6 +53,7 @@
     <div id="app">
         <!-- attribute binding -->
         <a v.bind:href="url">The Tolkien Society</a>
+        <br>
         <a :href="url">The Tolkien Society</a>
 
         <div v-if="showBooks">
