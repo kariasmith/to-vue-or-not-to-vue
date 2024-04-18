@@ -53,5 +53,6 @@ attribute binding tells the page to use the element listed in the jvscript
 
 he's got a separate whole class just over flex!
 
-
+Dynamic classes, the isFav is a class attribute.
+It will have a key:value pair.
 
