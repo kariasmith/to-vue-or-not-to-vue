@@ -141,7 +141,4 @@ So:
 *******************************************************************************************
 zsh: command not found: vue
 
-npm config get prefix
-sudo nano /etc/paths
-/npm/bin
-/usr/local
+isn't `vue cli` deprecated? I think `npm create vue@latest` is what you really want! 
