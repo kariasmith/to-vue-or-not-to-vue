@@ -56,3 +56,92 @@ he's got a separate whole class just over flex!
 Dynamic classes, the isFav is a class attribute.
 It will have a key:value pair.
 
+CLI: Command Line Interface
+
+I followed the instructions on the website https://cli.vuejs.org on installation of the cli tools:
+
+node -v (shows version of node.js installed) v18.16.1
+npm install -g @vue/cli
+https://next.cli.vuejs.org/guide/cli-service.html
+npm is a package manager for the JavaScript programming language 
+Note that the -g flag in the command is what enables the npm CLI to install the package globally. Here is an example: npm install -g typescript. The command above will install TypeScript globally on your computer. After the installation, you can use TypeScript in any directory.
+*******************************************************************************************
+ks@s-MacBook-Pro ~ % npm install -g @vue/cli
+npm notice 
+npm notice New major version of npm available! 9.5.1 -> 10.5.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.5.2
+npm notice Run npm install -g npm@10.5.2 to update!
+npm notice 
+npm ERR! code EACCES
+npm ERR! syscall mkdir
+npm ERR! path /usr/local/lib/node_modules/@vue
+npm ERR! errno -13
+npm ERR! Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/@vue'
+npm ERR!  [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/@vue'] {
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   syscall: 'mkdir',
+npm ERR!   path: '/usr/local/lib/node_modules/@vue'
+npm ERR! }
+npm ERR! 
+npm ERR! The operation was rejected by your operating system.
+npm ERR! It is likely you do not have the permissions to access this file as the current user
+npm ERR! 
+npm ERR! If you believe this might be a permissions issue, please double-check the
+npm ERR! permissions of the file and its containing directories, or try running
+npm ERR! the command again as root/Administrator.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/ks/.npm/_logs/2024-04-20T16_58_36_163Z-debug-0.log
+*******************************************************************************************
+This error occurs when you don't have the necessary permissions to create files or modify directories. Running commands with sudo temporarily elevates your privileges, but it's generally not recommended for global installations like Vue-cli.
+
+To address the issue, you can try the following steps:
+
+    Uninstall the global Vue CLI package by running: npm uninstall -g @vue/cli
+    Clear the npm cache by running: npm cache clean --force
+    Set the npm global prefix to a directory that you have write permissions for (e.g., your user's home directory): npm config set prefix ~/npm
+
+    Add the new npm global bin directory to your system's PATH by adding the following line to your shell profile file (e.g., ~/.bash_profile, ~/.zshrc, or ~/.profile): export PATH="$HOME/npm/bin:$PATH"
+    Close and reopen your terminal
+    Install Vue CLI again: npm install -g @vue/cli After executing the above steps, you should be able to use the vue command without encountering permission errors.
+*******************************************************************************************
+https://www.architectryan.com/2012/10/02/add-to-the-path-on-mac-os-x-mountain-lion/#.Uydjga1dXDg
+Add to the PATH on Mac OS X 10.8 Mountain Lion and up
+sudo nano /etc/paths
+GNU nano is an easy-to-use command line text editor for Unix and Linux operating systems.
+
+    Enter your password, when prompted.
+    Go to the bottom of the file, and enter the path you wish to add.
+    Hit control-x to quit.
+    Enter “Y” to save the modified buffer.
+    That’s it!  To test it, in new terminal window, type:
+echo $PATH
+
+You should see something similar to this (including the path you’ve added!):
+
+MacMini:~ ryan$ echo $PATH
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/share/npm/bin
+*******************************************************************************************
+Extending your PATH with:
+
+~export PATH=/usr/local/share/npm/bin:$PATH~
+
+isn't a terrible idea. Having said that, you shouldn't have to do it.
+
+Run this:
+
+npm config get prefix
+
+The default on OS X is /usr/local, which means that npm will symlink binaries into /usr/local/bin, which should already be on your PATH (especially if you're using Homebrew).
+
+So:
+
+    npm config set prefix /usr/local if it's something else
+*******************************************************************************************
+zsh: command not found: vue
+
+npm config get prefix
+sudo nano /etc/paths
+/npm/bin
+/usr/local
